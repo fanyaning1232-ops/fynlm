@@ -3,59 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>小红书自动排版工具</title>
+  <title>钢铁行业安全动漫宣传视频生成器</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <main class="app">
     <section class="panel form-panel">
-      <h1>小红书自动排版工具</h1>
-      <p class="subtitle">输入草稿，一键生成更适合小红书阅读的内容。</p>
+      <h1>钢铁行业安全动漫宣传视频生成器</h1>
+      <p class="subtitle">输入安全案例，一键生成可用于制作动画短视频的分镜脚本、旁白与镜头说明。</p>
 
-      <label>标题</label>
-      <input id="titleInput" placeholder="例如：通勤穿搭分享｜一周不重样" maxlength="40" />
+      <label for="caseType">安全案例类型</label>
+      <input id="caseType" placeholder="例如：高空坠落、机械卷入、煤气中毒" />
 
-      <label>正文草稿</label>
-      <textarea id="contentInput" rows="11" placeholder="粘贴你的原始内容，支持长段落。"></textarea>
+      <label for="locationInput">发生场景</label>
+      <input id="locationInput" placeholder="例如：连铸平台、检修走台、轧线设备区" />
+
+      <label for="audienceSelect">目标人群</label>
+      <select id="audienceSelect">
+        <option value="frontline">一线作业人员</option>
+        <option value="manager">班组长/管理人员</option>
+        <option value="mixed">全员培训</option>
+      </select>
 
       <div class="grid-two">
         <div>
-          <label>每段字数上限</label>
-          <input id="chunkSize" type="number" min="20" max="120" value="48" />
+          <label for="durationInput">视频时长（秒）</label>
+          <input id="durationInput" type="number" min="30" max="180" value="60" />
         </div>
         <div>
-          <label>语气风格</label>
-          <select id="toneSelect">
-            <option value="friendly">亲切分享</option>
-            <option value="pro">干货专业</option>
-            <option value="story">故事感</option>
+          <label for="styleSelect">动画风格</label>
+          <select id="styleSelect">
+            <option value="serious">严谨警示风</option>
+            <option value="story">故事还原风</option>
+            <option value="warm">温和科普风</option>
           </select>
         </div>
       </div>
 
-      <div class="grid-two">
-        <div>
-          <label>Emoji 强度</label>
-          <input id="emojiLevel" type="range" min="0" max="3" value="1" />
-        </div>
-        <div>
-          <label>关键词（逗号分隔）</label>
-          <input id="keywordsInput" placeholder="通勤,穿搭,显高" />
-        </div>
-      </div>
+      <label for="extraInput">补充要求（可选）</label>
+      <textarea id="extraInput" rows="3" placeholder="例如：强调双人监护制度，结尾加入班前会口号"></textarea>
 
       <div class="actions">
-        <button id="formatBtn">✨ 自动排版</button>
-        <button id="copyBtn" class="ghost">复制结果</button>
+        <button id="generateBtn">🎬 生成视频脚本</button>
+        <button id="copyBtn" class="ghost">复制脚本</button>
         <span id="copyState" aria-live="polite"></span>
       </div>
     </section>
 
     <section class="panel preview-panel">
-      <h2>预览</h2>
+      <h2>生成结果</h2>
       <article id="preview"></article>
-      <label class="result-title">最终文案</label>
-      <textarea id="resultText" rows="10" readonly></textarea>
+      <label class="result-title" for="resultText">可导出文案</label>
+      <textarea id="resultText" rows="14" readonly></textarea>
     </section>
   </main>
 
